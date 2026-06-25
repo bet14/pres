@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentation Script — Can Ripple Replace SWIFT?</title>
+<style>
+  :root{--bg:#0d0d0d;--bg2:#171717;--border:#2b2b2b;--text:#f0f0f0;--muted:#9a9a9a;--accent:#4a9eff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.55}
+  .wrap{max-width:860px;margin:0 auto;padding:36px 24px 60px}
+  h1{font-size:22px;font-weight:700;margin-bottom:26px}
+  h2.group{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--border)}
+  h2.group:first-of-type{border-top:none;margin-top:0;padding-top:0}
+  .item{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:14px 18px;margin-bottom:14px}
+  .item h3{font-size:14px;color:var(--text);margin-bottom:6px}
+  .item p{font-size:14px;color:var(--text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Presentation Script — Can Ripple Replace SWIFT?</h1>
+
+  <h2 class="group">Opening</h2>
+  <div class="item"><h3>Question</h3><p>Today my topic is to answer the question: Can Ripple's Blockchain-Based Payment Network Replace SWIFT and Correspondent Banking in Cross-Border Payments?</p></div>
+  <div class="item"><h3>Outline</h3><p>To answer that, I will first introduce the structure of cross-border payments and its challenges, then present the two networks — SWIFT and Ripple — and finally conduct a comparative assessment across several frameworks to reach a conclusion.</p></div>
+
+  <h2 class="group">Cross-Border Payments</h2>
+  <div class="item"><h3>Definition</h3><p>A cross-border payment is simply a transaction where the sender and the receiver are in different countries, potentially using different currencies, with no shared ledger connecting them.</p></div>
+  <div class="item"><h3>Phases</h3><p>A cross-border transaction goes through three phases: initiation, processing, and settlement. It involves multiple parties, networks, validation steps, and compliance checkpoints.</p></div>
+  <div class="item"><h3>4 Layers</h3><p>We can also describe the structure via four layers: Layer 1 — Services: user-facing interfaces. Layer 2 — Instruments: tools that facilitate a transaction. Layer 3 — Processing: rules, message standards, and clearing. Layer 4 — Settlement infrastructure: moves real money, involving correspondent banking and central bank money.</p></div>
+  <div class="item"><h3>Nostro/Vostro</h3><p>To move money across borders, banks rely on nostro/vostro accounts — pre-funded balances held at correspondent banks in foreign currencies. These balances let two banks in different jurisdictions settle directly with each other — but they are also exactly what traps liquidity.</p></div>
+
+  <h2 class="group">Evolution</h2>
+  <div class="item"><h3>Pre-1973</h3><p>Before 1973, banks sent payment instructions by telex — free-form, error-prone, and slow. Since then, electronic fund transfers became the standard.</p></div>
+  <div class="item"><h3>Key milestones</h3><p>As shown in the timeline, several key systems emerged along the way: SWIFT, then the Euro/TARGET and SEPA modernizing messaging and regional settlement, then blockchain-based systems — Bitcoin, XRP/Ripple, and Ethereum — followed by SWIFT's own gpi upgrade. Each new system answered the limits of the one before it, but none fully replaced its predecessor — that's the central thread running through this whole presentation.</p></div>
+  <div class="item"><h3>Challenges</h3><p>Despite all that evolution, the structural pain points remain. It's about speed: a cross-border transfer usually takes three to five days, against seconds on a blockchain or instant-payment scheme. It's about cost: not only the transaction fee, but also the opportunity cost of pre-funded nostro liquidity, so the recipient receives less than was sent. It's about opacity and exclusion: senders cannot track funds in real time. The root cause behind all of this is structural: there is no shared global ledger, so a payment is handed bank-to-bank through relay processing, picking up fees and FX conversion at every hop — exposing it to multiple risks. That's exactly where Ripple wants to step in: on the settlement layer, Ripple proposes a solution to transfer money very fast, within a few seconds, with no need for pre-funded liquidity.</p></div>
+
+  <h2 class="group">SWIFT</h2>
+  <div class="item"><h3>What it is</h3><p>SWIFT is a member-owned cooperative, founded in Belgium in 1973, connecting over 11,000 financial institutions in more than 200 countries. It processes around 15 billion messages a year.</p></div>
+  <div class="item"><h3>Core function</h3><p>SWIFT does not move money. It moves messages — secure, standardized instructions between banks. The actual funds move through correspondent accounts and domestic settlement systems underneath.</p></div>
+  <div class="item"><h3>gpi modernization</h3><p>In 2017, SWIFT launched gpi — Global Payments Innovation — adding end-to-end tracking, same-day settlement in most corridors, and fee transparency. Today, roughly 90% of gpi payments reach the beneficiary bank within an hour.</p></div>
+
+  <h2 class="group">Ripple</h2>
+  <div class="item"><h3>What it is</h3><p>Ripple is a for-profit company that built a payment network called RippleNet, running on an open-source blockchain called the XRP Ledger.</p></div>
+  <div class="item"><h3>ODL</h3><p>Its core innovation is On-Demand Liquidity (ODL). Instead of pre-funding nostro accounts, a bank converts its local currency into XRP, sends it across the ledger in three to five seconds, and the receiver converts it back to their local currency — no correspondent chain, no trapped capital.</p></div>
+  <div class="item">
+    <h3>RPCA consensus</h3>
+    <p>The consensus mechanism, RPCA, does not use mining or staking. Unlike Bitcoin or Ethereum, it uses Byzantine Fault Tolerant consensus: a set of trusted validators vote on transactions in rounds, and if more than 80% approve, the transaction is recorded — reaching agreement in seconds with minimal energy use.</p>
+    <p style="margin-top:8px">To bootstrap trust among validators, Ripple publishes a recommended Unique Node List (UNL) — a curated set of roughly 35–40 validators that nodes default to trusting. Anyone can run a validator, but most default, trusted validators are run or chosen by Ripple itself, so the practical trust anchor still sits close to the company.</p>
+    <p style="margin-top:8px;color:var(--muted);font-size:13px">[Slide: Transaction Throughput — show the Ripple vs Bitcoin &amp; Ethereum video already on this slide.]</p>
+  </div>
+
+  <h2 class="group">Comparative</h2>
+  <div class="item"><h3>Business Model Canvas</h3><p>We compare the two using the Business Model Canvas, focusing on value proposition. Ripple delivers settlement in three to five seconds at near-zero cost, freeing capital otherwise trapped in nostro accounts — for banks, money-transfer operators, and central banks exploring CBDCs. SWIFT delivers secure, standardized messaging trusted by over 11,000 institutions in more than 200 countries. The two are optimized for different things: Ripple for speed and capital efficiency, SWIFT for neutrality and trust.</p></div>
+  <div class="item"><h3>SWOT</h3><p>Ripple's strengths: speed, low cost, freeing trapped liquidity via ODL. Weaknesses: partial centralization (Ripple Inc. controls the Default Validator List), dependency on volatile XRP. SWIFT's strength: unmatched global reach and regulatory trust. Weakness: legacy settlement speed and trapped liquidity that messaging upgrades cannot solve.</p></div>
+  <div class="item"><h3>Impossible Triangle</h3><p>No system can maximize Speed, Security, and Decentralization simultaneously. Bitcoin and Ethereum pick decentralization plus security (slow). Ripple picks speed plus security (not truly decentralized). SWIFT picks security plus global reach (slow). Ripple and SWIFT are not competing for the same position — they are optimized for different things.</p></div>
+  <div class="item"><h3>Network Effects</h3><p>Under Metcalfe's Law (value ∝ n²), SWIFT's 11,000+ institutions produce ~60 million connections versus RippleNet's ~45,000 — over 1,000× smaller in network value. This gap cannot be closed linearly. However, Reed's Law shows value also comes from subgroups: Ripple targets specific high-value corridors (Mexico–US, Japan–Thailand) rather than universal reach.</p></div>
+  <div class="item"><h3>S-Curve</h3><p>SWIFT: saturated — institution count plateaued, but message volume grows ~12%/yr (usage intensity, not new adopters). Bitcoin: still rising — ~9% of world population, no plateau after 12+ years. RippleNet: early growth — ~300 institutions in 55 countries; accelerated 2016–2019, then slowed due to SEC litigation and banks favoring SWIFT gpi.</p></div>
+  <div class="item"><h3>Adoption Life Cycle (TALC)</h3><p>On the Technology Adoption Life Cycle, SWIFT sits well into Late Majority — fully saturated since before 2015. Bitcoin has just crossed the chasm into Early Majority, helped by the 2024 spot ETFs. RippleNet was stuck at the edge of the chasm for years due to the SEC lawsuit, but now that the case is resolved, it has also just crossed into Early Majority alongside Bitcoin.</p></div>
+
+  <h2 class="group">Conclusion</h2>
+  <div class="item"><h3>Answer</h3><p>Short answer: not a full replacement — but a genuine, partial challenger that forces SWIFT to evolve.</p></div>
+  <div class="item"><h3>Why not replace</h3><p>SWIFT's network effects, regulatory trust, and cooperative governance form a moat that technical speed alone cannot overcome. SWIFT's own upgrades have largely neutralized Ripple's original speed and transparency advantage. And the scope is different by design: SWIFT carries rich, multi-instrument messaging across securities, trade finance, and treasury, while Ripple is built narrowly for value settlement.</p></div>
+  <div class="item"><h3>4 Problems with "Replace"</h3><p>1. Centralization in disguise: Ripple Inc. controls the Default Validator List — central banks see a private network, not neutral infrastructure. 2. ODL adoption is narrower than it appears: many banks use RippleNet software but not XRP for settlement. 3. Regulatory risk: five years of SEC litigation (resolved 2025) is exactly the kind of risk SWIFT never carries. 4. FX volatility: XRP as a bridge introduces non-zero price risk in the settlement window.</p></div>
+  <div class="item"><h3>SWIFT's response</h3><p>gpi closed the speed gap. ISO 20022 closes the data gap. SWIFT is now piloting CBDC network connections — positioning itself as the interoperability layer even in a tokenized future.</p></div>
+  <div class="item"><h3>Why Ripple still matters</h3><p>Ripple solves a real structural problem — trapped nostro liquidity — that messaging upgrades cannot touch. It pushed the industry to modernize and is genuinely strong in emerging-market corridors and remittances where SWIFT is weak.</p></div>
+  <div class="item"><h3>Final verdict</h3><p>The most likely future is coexistence: SWIFT as the messaging and compliance backbone, blockchain rails handling fast settlement in specific corridors, and the two increasingly interconnected. "Replace" is the wrong verb. "Reshape" is the right one.</p></div>
+
+</div>
+</body>
+</html>
